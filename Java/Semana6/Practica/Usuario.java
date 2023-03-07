@@ -7,11 +7,11 @@ public class Usuario {
 
    
     public void setContrasenia(String contrasenia) {
-        char a = '\0';
+        // char a = '\0';
         // char b;
         for (int i = 0; i < contrasenia.length(); i++) {
-            b = a;
-            a = contrasenia.charAt(i);
+            // b = a;
+            // a = contrasenia.charAt(i);
         }
     
       this.contrasenia = contrasenia;

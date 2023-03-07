@@ -1,4 +1,4 @@
-package Java.Proyecto;
+package Proyecto;
 
 public class Clientes {
     
