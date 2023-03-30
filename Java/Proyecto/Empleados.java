@@ -1,74 +1,173 @@
 package Proyecto;
 
+import javax.swing.JOptionPane;
+
 public class Empleados {
+    private String nombre;
+    private String cedula;
+    private int salario = 0;
+    private static Puestos Puestos;
 
-  private String nombre;
-  private String cedula;
-  private int salario;
-  public Puestos Puestos;
+    static Empleados empleadosLista[] = new Empleados[10];
 
-  private enum Puestos {
-    Gerente,
-    Supervisor,
-    Accesor_Ventas,
-  }
+    /*
+     * ? Encapsuladores
+     */
+    public String getNombre() {
+        return nombre;
+    }
 
-  public Empleados(String nombre, String cedula, int salario, String puesto) {
-    this.nombre = nombre;
-    this.cedula = cedula;
-    this.salario = salario;
-    // this.Puestos = puestos;
-  }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-  public String getNombre() {
-    return nombre;
-  }
+    public String getCedula() {
+        return cedula;
+    }
 
-  public void setNombre(String nombre) {
-    this.nombre = nombre;
-  }
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
 
-  public String getCedula() {
-    return cedula;
-  }
+    public int getSalario() {
+        return salario;
+    }
 
-  public void setCedula(String cedula) {
-    this.cedula = cedula;
-  }
+    public void setSalario(int salario) {
+        this.salario = salario;
+    }
 
-  public int getSalario() {
-    return salario;
-  }
+    public Puestos getPuestos() {
+        return Puestos;
+    }
 
-  public void setSalario(int salario) {
-    this.salario = salario;
-  }
+    public void setPuestos(Puestos puestos) {
+        Puestos = puestos;
+    }
 
-  public static void monstrarEmpleados() {
-    
-  }
+    private enum Puestos {
+        Gerente,
+        Supervisor,
+        Accesor_Ventas,
+    }
 
-  public static boolean modificarRegistro() {
-    boolean confirmacion = false;
+    /*
+     * ? Constructor vacio
+     */
+    public Empleados() {
 
-    return confirmacion;
-  }
+    }
 
-  public static boolean eliminarRegistro() {
-    boolean confirmacion = false;
+    /*
+     * ? Constructor
+     */
+    public Empleados(String nombre, String cedula, int salario, String puesto) {
+        this.nombre = nombre;
+        this.cedula = cedula;
+        this.salario = salario;
+        // this.Puestos = puestos;
+    }
 
-    return confirmacion;
-  }
+    /*
+     * ? Inicializacion de usuarios
+     */
+    public static void inicializacionEmpleados() {
+        empleadosLista[0] = new Empleados("Fran", "1", 100, "1");
+        empleadosLista[1] = new Empleados("Kevin", "12", 200, "1");
+        empleadosLista[2] = new Empleados("Alex", "123", 300, "1");
 
-  public static boolean ingresarNuevoEmpleado() {
-    boolean confirmacion = false;
+        for (int i = 3; i < empleadosLista.length; i++) {
+            empleadosLista[i] = new Empleados();
+        }
+    }
 
-    return confirmacion;
-  }
+    /*
+     * ? Mostrar lista de empleados
+     */
+    public static void mostrarEmpleados() {
+        String empleados = "";
 
-  public static boolean eliminarEmpleado() {
-    boolean confirmacion = false;
+        for (int i = 0; i < empleadosLista.length; i++) {
 
-    return confirmacion;
-  }
+            if (i < empleadosLista.length - 1) {
+                empleados += (i + 1) + ". " + empleadosLista[i].getNombre() + " \n";
+            } else {
+                empleados += (i + 1) + ". " + empleadosLista[i].getNombre();
+            }
+        }
+        Logueo.mensaje(empleados);
+    }
+
+    /*
+     * ? Metodo de modificacion de registro
+     */
+    public static void modificarRegistro() {
+        Logueo.mensaje("Se mostrara la lista de usuario con la posicion podras modificar dicho usuario");
+        listaEmpleados();
+        int posicion = Integer
+                .parseInt(JOptionPane.showInputDialog(null, "Digta la posicion del usuario que desea modificar"));
+
+        String nombre = JOptionPane.showInputDialog(null, "Ingrese nombre");
+        String cedula = JOptionPane.showInputDialog(null, "Ingrese cedula");
+        int salario = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingresa el nuevo salario"));
+        String puesto = JOptionPane.showInputDialog(null, "Ingrese puesto");
+        posicionEmpleados(posicion, nombre, cedula, salario, puesto);
+        Logueo.mensaje("Se ha modificado el empleado exitosamente");
+    }
+
+    /* 
+     * ? Metodo de eliminar usuario
+     */
+    public static void eliminarEmpleado() {
+        Logueo.mensaje("Se mostrara la lista de usuario con la posicion podras eliminar dicho usuario");
+        listaEmpleados();
+        int posicion = Integer
+                .parseInt(JOptionPane.showInputDialog(null, "Digta la posicion del usuario que desea eliminar"));
+
+        empleadosLista[posicion] = new Empleados();
+        Logueo.mensaje("Se ha eliminado el usuario con exito");
+    }
+
+    /* 
+     * ? Metodo para ingresar un nuevo empleado
+     */
+    public static void ingresarNuevoEmpleado(String nombre, String cedula, int salario, String puesto) {
+        for (int i = 0; i < empleadosLista.length; i++) {
+
+            if (empleadosLista[i].nombre == null) {
+                empleadosLista[i] = new Empleados(nombre, cedula, salario, puesto);
+                Logueo.mensaje("Usuario agregado exitosamente");
+                break;
+            } else if (empleadosLista[9] != null) {
+                Logueo.mensaje("Maximo de usuarios agregados");
+            }
+        }
+    }
+
+    /* 
+     * ? para mostra la lista de los empleados registrados
+     */
+    public static void listaEmpleados() {
+        String usuarios = "";
+
+        for (int i = 0; i < empleadosLista.length; i++) {
+
+            if (i < empleadosLista.length - 1) {
+                usuarios += (i + 1) + ". " + empleadosLista[i].getNombre() + " \n";
+            } else {
+                usuarios += (i + 1) + ". " + empleadosLista[i].getNombre();
+            }
+        }
+        Logueo.mensaje(usuarios);
+    }
+
+    /*
+     * ? Eligiendo la pocicion del empleado
+     */
+    public static void posicionEmpleados(int posicion, String nombre, String cedula, int salario, String puesto) {
+        empleadosLista[posicion - 1].setNombre(nombre);
+        empleadosLista[posicion - 1].setCedula(cedula);
+        empleadosLista[posicion - 1].setSalario(salario);
+        // empleadoslista[pocision - 1].setPuestos(puesto);
+    }
 }
