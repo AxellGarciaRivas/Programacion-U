@@ -124,7 +124,7 @@ public class Empleados {
         int posicion = Integer
                 .parseInt(JOptionPane.showInputDialog(null, "Digta la posicion del usuario que desea eliminar"));
 
-        empleadosLista[posicion] = new Empleados();
+        empleadosLista[posicion - 1] = new Empleados();
         Logueo.mensaje("Se ha eliminado el usuario con exito");
     }
 
@@ -139,7 +139,7 @@ public class Empleados {
                 Logueo.mensaje("Usuario agregado exitosamente");
                 break;
             } else if (empleadosLista[9] != null) {
-                Logueo.mensaje("Maximo de usuarios agregados");
+                Logueo.mensaje("Maximo de empleados agregados");
             }
         }
     }
