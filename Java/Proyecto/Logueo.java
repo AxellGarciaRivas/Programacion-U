@@ -41,12 +41,14 @@ public class Logueo {
     /*
      * ? Inicializacion de objeto
      */
+
+
     public static void inicializacionUsuario() {
         logueoUsuarios[0] = new Logueo("Administrador", "12345");
 
-        // for (int i = 1; i < logueoUsuarios.length; i++) {
-        //     logueoUsuarios[i] = new Logueo();
-        // }
+        for (int i = 1; i < logueoUsuarios.length; i++) {
+            logueoUsuarios[i] = new Logueo();
+        }
     }
 
     /*
@@ -71,7 +73,8 @@ public class Logueo {
     public static void modificarUsuario() {
         mensaje("Se mostrara la lista de usuario con la posicion podras modificar dicho usuario");
         listaArray();
-        int posicion = Integer.parseInt(JOptionPane.showInputDialog(null, "Digta la posicion del usuario que desea modificar"));
+        int posicion = Integer
+                .parseInt(JOptionPane.showInputDialog(null, "Digta la posicion del usuario que desea modificar"));
         String usuario = JOptionPane.showInputDialog(null, "Ingrese Usuario");
         String contrasenia = JOptionPane.showInputDialog(null, "Ingrese Crontraseña");
         pocision(posicion, usuario, contrasenia);
@@ -84,7 +87,8 @@ public class Logueo {
     public static void eliminarUsuario() {
         mensaje("Se mostrara la lista de usuario con la posicion podras eliminar dicho usuario");
         listaArray();
-        int posicion = Integer.parseInt(JOptionPane.showInputDialog(null, "Digta la posicion del usuario que desea modificar"));
+        int posicion = Integer
+                .parseInt(JOptionPane.showInputDialog(null, "Digta la posicion del usuario que desea modificar"));
 
         String usuario = "";
         String contrasenia = "";
@@ -119,8 +123,25 @@ public class Logueo {
     /*
      * ? Eligiendo la pocision
      */
-    public static void pocision(int pocision,String usuario, String contrasenia) {
+    public static void pocision(int pocision, String usuario, String contrasenia) {
         logueoUsuarios[pocision - 1].setUsuario(usuario);
         logueoUsuarios[pocision - 1].setContrasenia(contrasenia);
+    }
+
+    /*
+     * ? Validacion de logueo
+     */
+    public static boolean validacionLogueo(String usuario, String contrasenia) {
+        boolean acceso = false;
+
+        for (int i = 0; i < logueoUsuarios.length; i++) {
+
+            if (usuario.equals(logueoUsuarios[i].getUsuario())
+                    && contrasenia.equals(logueoUsuarios[i].getContrasenia())) {
+                acceso = true;
+                break;
+            }
+        }
+        return acceso;
     }
 }

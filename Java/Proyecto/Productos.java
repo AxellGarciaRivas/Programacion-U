@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 public class Productos {
     private String id;
     private String marca;
-    private estado estado;
+    private String estado;
     private String descripcion;
     private int precio;
     static Productos listaCarro[] = new Productos[10];
@@ -46,17 +46,12 @@ public class Productos {
         this.precio = precio;
     }
 
-    public estado getEstado() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(estado estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
-    }
-
-    public enum estado {
-        Nuevo,
-        Usado
     }
 
     /*
@@ -68,23 +63,23 @@ public class Productos {
     /*
      * ? Constructor
      */
-    public Productos(String id, String marca, int estado, String descripcion, int precio) {
+    public Productos(String id, String marca, String descripcion, int precio, String estado) {
         this.id = id;
         this.marca = marca;
-        // this.estado = estado;
         this.descripcion = descripcion;
         this.precio = precio;
+        this.estado = estado;
     }
 
     /* 
      * ? Metodo de inicializacion del objeto
      */
     public static void inicializacionCarro() {
-        listaCarro[0] = new Productos("1", "Hyundai", 0, "Carro de cochera", 100);
-        listaCarro[1] = new Productos("2", "Toyota", 0, "Carro muy cuidado", 200);
-        listaCarro[2] = new Productos("3", "Toyota", 0, "Carro muy cuidado", 300);
-        listaCarro[3] = new Productos("4", "Toyota", 0, "Carro muy cuidado", 400);
-        listaCarro[4] = new Productos("5", "Toyota", 0, "Carro muy cuidado", 500);
+        listaCarro[0] = new Productos("1", "Hyundai", "Carro de cochera", 100, "Usado");
+        listaCarro[1] = new Productos("2", "Toyota", "Carro muy cuidado", 200, "Usado");
+        listaCarro[2] = new Productos("3", "Toyota", "Carro muy cuidado", 300, "Usado");
+        listaCarro[3] = new Productos("4", "Toyota", "Carro muy cuidado", 400, "Usado");
+        listaCarro[4] = new Productos("5", "Toyota", "Carro muy cuidado", 500, "Usado");
 
         for (int i = 5; i < listaCarro.length; i++) {
             listaCarro[i] = new Productos();
@@ -123,11 +118,11 @@ public class Productos {
     /* 
      * ? Metodo para agregar vehiculos
      */
-    public static void agregarVehiculo(String id, String marca, int estado, String descripcion, int precio) {
+    public static void agregarVehiculo(String id, String marca, String descripcion, int precio, String estado) {
         for (int i = 0; i < listaCarro.length; i++) {
 
             if (listaCarro[i].getMarca() == null) {
-                listaCarro[i] = new Productos(id, marca, estado, descripcion, precio);
+                listaCarro[i] = new Productos(id, marca, descripcion, precio, estado);
                 Logueo.mensaje("Carro agregado exitosamente");
                 break;
             } else if (listaCarro[14] != null) {

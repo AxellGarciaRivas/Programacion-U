@@ -6,7 +6,7 @@ public class Empleados {
     private String nombre;
     private String cedula;
     private int salario = 0;
-    private static Puestos Puestos;
+    private String puesto;
 
     static Empleados empleadosLista[] = new Empleados[10];
 
@@ -37,20 +37,14 @@ public class Empleados {
         this.salario = salario;
     }
 
-    public Puestos getPuestos() {
-        return Puestos;
+    public String getPuesto() {
+        return puesto;
     }
 
-    public void setPuestos(Puestos puestos) {
-        Puestos = puestos;
+    public void setPuesto(int puesto) {
+        this.salario = puesto;
     }
-
-    private enum Puestos {
-        Gerente,
-        Supervisor,
-        Accesor_Ventas,
-    }
-
+    
     /*
      * ? Constructor vacio
      */
@@ -65,16 +59,16 @@ public class Empleados {
         this.nombre = nombre;
         this.cedula = cedula;
         this.salario = salario;
-        // this.Puestos = puestos;
+        this.puesto = puesto;
     }
 
     /*
      * ? Inicializacion de usuarios
      */
     public static void inicializacionEmpleados() {
-        empleadosLista[0] = new Empleados("Fran", "1", 100, "1");
-        empleadosLista[1] = new Empleados("Kevin", "12", 200, "1");
-        empleadosLista[2] = new Empleados("Alex", "123", 300, "1");
+        empleadosLista[0] = new Empleados("Fran", "1", 100, "Gerente");
+        empleadosLista[1] = new Empleados("Kevin", "12", 200, "Ingeniero");
+        empleadosLista[2] = new Empleados("Alex", "123", 300, "Operario");
 
         for (int i = 3; i < empleadosLista.length; i++) {
             empleadosLista[i] = new Empleados();
