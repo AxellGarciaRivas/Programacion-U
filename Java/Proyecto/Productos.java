@@ -169,7 +169,7 @@ public class Productos {
     /* 
      * ? inicializando los servicios
      */
-    public static void mostrarInventarioServicio() {
+    public static void inicializacionServicio() {
         listaServicios[0] = new Productos("Cambio de aceite", 100);
         listaServicios[1] = new Productos("Venta", 10000);
         listaServicios[2] = new Productos("Lavado de vehiculos", 2000);
@@ -177,4 +177,19 @@ public class Productos {
         listaServicios[4] = new Productos("Manteniento preventivo", 6000);
     }
 
+    /* 
+     * ? Metodo de mostrar servicios
+     */
+    public static void mostrarServicio() {
+        String servicios = "";
+
+        for (int i = 0; i < listaServicios.length; i++) {
+            if (i < listaCarro.length - 1) {
+                servicios += (i + 1) + ". " + listaServicios[i].getServicio() + " \n";
+            } else {
+                servicios += (i + 1) + ". " + listaServicios[i].getServicio();
+            }
+        }
+        Logueo.mensaje(servicios);
+    }
 }

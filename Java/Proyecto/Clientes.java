@@ -8,8 +8,11 @@ public class Clientes {
     private String direccion;
     private String telefono;
     private String correo;
-    static Clientes clientesarr[] = new Clientes[100];
+    static Clientes clientesarr[] = new Clientes[30];
 
+    /* 
+     * ? Constructor
+     */
     public Clientes(String nombre, String cedula, String direccion, String telefono, String correo) {
         this.nombre = nombre;
         this.cedula = cedula;
@@ -18,6 +21,9 @@ public class Clientes {
         this.correo = correo;
     }
 
+    /* 
+     * ? Encapsuladores de los atributos
+     */
     public String getNombre() {
         return nombre;
     }
@@ -58,9 +64,15 @@ public class Clientes {
         this.correo = correo;
     }
 
+    /* 
+     * ? Constructor vacio
+     */
     public Clientes() {
     }
 
+    /* 
+     * ? Metodo para inicializacion de los clientes
+     */
     public static void inicializacionClientes() {
         clientesarr[0] = new Clientes("Fafa Jimenez", "111", "concepcion", "898989000", "fafa@gmail.com");
         clientesarr[1] = new Clientes("Pao Jimenez", "222", "concepcion", "87609034", "poa@gmail.com");
@@ -69,7 +81,9 @@ public class Clientes {
             clientesarr[i] = new Clientes();
         }
     }
-
+    /* 
+     * ? Metodo para registrar cliente
+     */
     public static void registrarClientes() {
 
         int valor = Integer.parseInt(JOptionPane.showInputDialog(null, "Cuantos clientes va a registrar"));
@@ -83,10 +97,20 @@ public class Clientes {
 
             // Ya tengo los atributos para crear el objeto, entonces puedo instanciar en el
             // arreglo
-            clientesarr[i] = new Clientes(nomCliente, idCliente, direcCliente, telefCliente, emailCliente);
+            if (clientesarr[i].nombre == null) {
+                clientesarr[i] = new Clientes(nomCliente, idCliente, direcCliente, telefCliente, emailCliente);
+                Logueo.mensaje("Usuario agregado exitosamente");
+                break;
+            } else if (clientesarr[9] != null) {
+                Logueo.mensaje("Maximo de clientes agregados");
+            }
+
         } // Fin del else
     }// Fin del método
 
+    /* 
+     * ? Metodo para mostrar lista de clientes
+     */
     public static void mostrarCliente() {
         String clientes = "";
 
@@ -101,16 +125,19 @@ public class Clientes {
         Logueo.mensaje(clientes);
     }
 
+    /* 
+     * ? Metodo para modificar cliente
+     */
     public static void modificarCliente() {
         JOptionPane.showMessageDialog(null,
-                "Se mostrara la lista de clientes con la posicion podras modificar dicho usuario");
-        JOptionPane.showMessageDialog(null, clientesarr);
+                "Se mostrara la lista de clientes con la posicion podras modificar dicho Clientes");
+        mostrarCliente();
         int posicion = Integer
-                .parseInt(JOptionPane.showInputDialog(null, "Digta la posicion del cliente que desea modificar"));
+                .parseInt(JOptionPane.showInputDialog(null, "Digita la posicion del cliente que desea modificar"));
 
         String nombre = JOptionPane.showInputDialog(null, "Ingrese el nuevo nombre");
         String cedula = JOptionPane.showInputDialog(null, "Ingrese la nueva cedula");
-        String direccion = JOptionPane.showInputDialog(null, "Ingrese la direccion nueva");
+        String direccion = JOptionPane.showInputDialog(null, "Ingrese la nueva direccion");
         String telefono = JOptionPane.showInputDialog(null, "Ingrese el nuevo telefono");
         String email = JOptionPane.showInputDialog(null, "Ingrese el nuevo email");
 
@@ -118,6 +145,9 @@ public class Clientes {
         JOptionPane.showMessageDialog(null, "Se ha modificado el empleado exitosamente");
     }
 
+    /* 
+     * ? Metodo para posicion
+     */
     public static void posicionCliente(int posicion, String nombre, String cedula, String direccion, String telefono,
             String email) {
         clientesarr[posicion - 1].setNombre(nombre);
@@ -125,6 +155,6 @@ public class Clientes {
         clientesarr[posicion - 1].setDireccion(direccion);
         clientesarr[posicion - 1].setTelefono(telefono);
         clientesarr[posicion - 1].setCorreo(email);
-        // empleadoslista[pocision - 1].setPuestos(puesto);
     }
+
 }
