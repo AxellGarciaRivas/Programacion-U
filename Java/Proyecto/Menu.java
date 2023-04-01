@@ -31,7 +31,7 @@ public class Menu {
     public static void menuPrincipal(String usuario, String contrasenia) {
         String[] botones = { "Logueo", "Empleados", "Clientes", "Provedores", "Productos", "Ventas",
                 "Cambiar credenciales" };
-        int decision = JOptionPane.showOptionDialog(null, "¿A que sección del programa deseas ir?", "Menú", 0,
+        int decision = JOptionPane.showOptionDialog(null, "¿A que sección del programa deseas ir?", "Menú principal", 0,
                 JOptionPane.QUESTION_MESSAGE, null, botones, "Logueo");
 
         /*

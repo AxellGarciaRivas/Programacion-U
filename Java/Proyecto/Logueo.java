@@ -87,9 +87,7 @@ public class Logueo {
         int posicion = Integer
                 .parseInt(JOptionPane.showInputDialog(null, "Digta la posicion del usuario que desea modificar"));
 
-        String usuario = "";
-        String contrasenia = "";
-        pocision(posicion, usuario, contrasenia);
+        logueoUsuarios[posicion - 1] = new Logueo();
         mensaje("Se ha eliminado el usuario con exito");
     }
 

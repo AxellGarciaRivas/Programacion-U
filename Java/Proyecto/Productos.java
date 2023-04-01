@@ -108,7 +108,7 @@ public class Productos {
     public static void sacarVehiculo() {
         Logueo.mensaje("Se mostrara la lista de carros con la posicion podras sacar dicho vehiculo del inventario");
         mostrarInventarioCarro();
-        int posicion = Integer.parseInt(JOptionPane.showInputDialog(null, "Digta la posicion del usuario que desea eliminar"));
+        int posicion = Integer.parseInt(JOptionPane.showInputDialog(null, "Digita la posicion del carro que desea sacar"));
 
         listaCarro[posicion - 1] = new Productos();
         Logueo.mensaje("Se ha sacado de inventario el carro con exito");
@@ -169,7 +169,7 @@ public class Productos {
      */
     public static void inicializacionServicio() {
         listaServicios[0] = new Productos("Cambio de aceite", 100);
-        listaServicios[1] = new Productos("Venta", 10000);
+        listaServicios[1] = new Productos("Venta de llantas", 10000);
         listaServicios[2] = new Productos("Lavado de vehiculos", 2000);
         listaServicios[3] = new Productos("Reparacion y mantenimienteo de aire condicionado", 2500);
         listaServicios[4] = new Productos("Manteniento preventivo", 6000);

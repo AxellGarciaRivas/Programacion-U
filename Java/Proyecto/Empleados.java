@@ -96,10 +96,10 @@ public class Empleados {
      * ? Metodo de modificacion de registro
      */
     public static void modificarRegistro() {
-        Logueo.mensaje("Se mostrara la lista de usuario con la posicion podras modificar dicho usuario");
+        Logueo.mensaje("Se mostrara la lista de empleados con la posicion podras modificar dicho usuario");
         listaEmpleados();
         int posicion = Integer
-                .parseInt(JOptionPane.showInputDialog(null, "Digta la posicion del usuario que desea modificar"));
+                .parseInt(JOptionPane.showInputDialog(null, "Digita la posicion del empleado que desea modificar"));
 
         String nombre = JOptionPane.showInputDialog(null, "Ingrese nombre");
         String cedula = JOptionPane.showInputDialog(null, "Ingrese cedula");
@@ -113,10 +113,10 @@ public class Empleados {
      * ? Metodo de eliminar usuario
      */
     public static void eliminarEmpleado() {
-        Logueo.mensaje("Se mostrara la lista de usuario con la posicion podras eliminar dicho usuario");
+        Logueo.mensaje("Se mostrara la lista de empleados con la posicion podras eliminar dicho usuario");
         listaEmpleados();
         int posicion = Integer
-                .parseInt(JOptionPane.showInputDialog(null, "Digta la posicion del usuario que desea eliminar"));
+                .parseInt(JOptionPane.showInputDialog(null, "Digita la posicion del empleado que desea eliminar"));
 
         empleadosLista[posicion - 1] = new Empleados();
         Logueo.mensaje("Se ha eliminado el usuario con exito");
@@ -130,7 +130,7 @@ public class Empleados {
 
             if (empleadosLista[i].getNombre() == null) {
                 empleadosLista[i] = new Empleados(nombre, cedula, salario, puesto);
-                Logueo.mensaje("Usuario agregado exitosamente");
+                Logueo.mensaje("Empleado agregado exitosamente");
                 break;
             } else if (empleadosLista[9].getNombre() != null) {
                 Logueo.mensaje("Maximo de empleados agregados");
@@ -142,17 +142,17 @@ public class Empleados {
      * ? para mostra la lista de los empleados registrados
      */
     public static void listaEmpleados() {
-        String usuarios = "";
+        String empleados = "";
 
         for (int i = 0; i < empleadosLista.length; i++) {
 
             if (i < empleadosLista.length - 1) {
-                usuarios += (i + 1) + ". " + empleadosLista[i].getNombre() + " \n";
+                empleados += (i + 1) + ". " + empleadosLista[i].getNombre() + " \n";
             } else {
-                usuarios += (i + 1) + ". " + empleadosLista[i].getNombre();
+                empleados += (i + 1) + ". " + empleadosLista[i].getNombre();
             }
         }
-        Logueo.mensaje(usuarios);
+        Logueo.mensaje(empleados);
     }
 
     /*
@@ -162,6 +162,5 @@ public class Empleados {
         empleadosLista[posicion - 1].setNombre(nombre);
         empleadosLista[posicion - 1].setCedula(cedula);
         empleadosLista[posicion - 1].setSalario(salario);
-        // empleadoslista[pocision - 1].setPuestos(puesto);
     }
 }

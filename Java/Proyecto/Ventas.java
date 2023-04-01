@@ -104,19 +104,19 @@ public class Ventas {
     }
 
     /* 
-     * ? Modificar registrosc
+     * ? Metodo para modificar faturas
      */
     public static void modificarRegistro() {
         Logueo.mensaje("Se mostrara la lista de registro con la posicion podras modificar dicho registro");
         consultarVenta();
-        int posicion = Integer.parseInt(JOptionPane.showInputDialog(null, "Digta la posicion del usuario que desea modificar"));
+        int posicion = Integer.parseInt(JOptionPane.showInputDialog(null, "Digita la posicion de la factura de ventas que desea modificar"));
 
         int monto = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingresa monto"));
         String producto = JOptionPane.showInputDialog(null, "Ingrese producto");
         String metodoPago = JOptionPane.showInputDialog(null, "Ingrese metodo de pago");
         String infoComprador = JOptionPane.showInputDialog(null, "Ingrese Informacion del comprador");
         String fecha = JOptionPane.showInputDialog(null, "Ingrese fecha");
-        Logueo.mensaje("Se ha modificado el empleado exitosamente");
+        Logueo.mensaje("Se ha modificado la factura exitosamente");
         posicionFactura(posicion, monto, producto, metodoPago, infoComprador, fecha);
     }
 
@@ -124,9 +124,9 @@ public class Ventas {
      * ? Metodo para eliminar registro de facturas
      */
     public static void eliminarRegistro() {
-        Logueo.mensaje("Se mostrara la lista de ventas con la posicion podras eliminar dicha venta");
+        Logueo.mensaje("Se mostrara la lista de faturas con la posicion podras eliminar dicha venta");
         consultarVenta();
-        int posicion = Integer.parseInt(JOptionPane.showInputDialog(null, "Digta la posicion de venta que desea eliminar"));
+        int posicion = Integer.parseInt(JOptionPane.showInputDialog(null, "Digita la posicion de la factura que desea eliminar"));
 
         listaVentas[posicion - 1] = new Ventas();
         Logueo.mensaje("Se ha eliminado la factura con exito");

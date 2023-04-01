@@ -89,13 +89,13 @@ public class Clientes {
             if (clientesarr[i].getNombre() == null) {
             String nomCliente = JOptionPane.showInputDialog("Digite el nombre del cliente").toUpperCase();
             String idCliente = JOptionPane.showInputDialog("Digite la cécula del cliente").toUpperCase();
-            String direcCliente = JOptionPane.showInputDialog("Digite el género del cliente").toUpperCase();
+            String direcCliente = JOptionPane.showInputDialog("Digite el dirección del cliente").toUpperCase();
             String telefCliente = JOptionPane.showInputDialog("Digite el teléfono del cliente");
             String emailCliente = JOptionPane.showInputDialog("Digite el email del cliente");
             // Ya tengo los atributos para crear el objeto, entonces puedo instanciar en el
             // arreglo
                 clientesarr[i] = new Clientes(nomCliente, idCliente, direcCliente, telefCliente, emailCliente);
-                Logueo.mensaje("Usuario agregado exitosamente");
+                Logueo.mensaje("Cliente agregado exitosamente");
                 break;
             } else if (clientesarr[9].getNombre() != null) {
                 Logueo.mensaje("Maximo de clientes agregados");
@@ -126,7 +126,7 @@ public class Clientes {
      */
     public static void modificarCliente() {
         JOptionPane.showMessageDialog(null,
-                "Se mostrara la lista de clientes con la posicion podras modificar dicho Clientes");
+                "Se mostrara la lista de clientes con la posicion podras modificar dicho clientes");
         mostrarCliente();
         int posicion = Integer
                 .parseInt(JOptionPane.showInputDialog(null, "Digita la posicion del cliente que desea modificar"));
@@ -138,7 +138,7 @@ public class Clientes {
         String email = JOptionPane.showInputDialog(null, "Ingrese el nuevo email");
 
         posicionCliente(posicion, nombre, cedula, direccion, telefono, email);
-        JOptionPane.showMessageDialog(null, "Se ha modificado el empleado exitosamente");
+        JOptionPane.showMessageDialog(null, "Se ha modificado el cliente exitosamente");
     }
 
     /* 

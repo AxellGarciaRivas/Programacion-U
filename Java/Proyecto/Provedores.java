@@ -61,8 +61,8 @@ public class Provedores {
     public static void modificarProvedor() {
         Logueo.mensaje("Se mostrara la lista de marcas con la posicion podras modificar dicha marca");
         mostrarProvedor();
-        int posicion = Integer.parseInt(JOptionPane.showInputDialog(null, "Digta la posicion del usuario que desea modificar"));
-        listaProvedores[posicion].marca = JOptionPane.showInputDialog(null, "Ingrese la correccion de marca");
+        int posicion = Integer.parseInt(JOptionPane.showInputDialog(null, "Digta la posicion de la marca que desea modificar"));
+        listaProvedores[posicion - 1].marca = JOptionPane.showInputDialog(null, "Ingrese la correccion de marca");
     }
 
     /* 
@@ -91,6 +91,6 @@ public class Provedores {
                 .parseInt(JOptionPane.showInputDialog(null, "Digta la posicion de la marca que desea eliminar"));
 
         listaProvedores[posicion - 1] = new Provedores();
-        Logueo.mensaje("Se ha eliminado el provedor");
+        Logueo.mensaje("Se ha eliminado el provedor correctamente");
     }
 }
