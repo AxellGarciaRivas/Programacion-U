@@ -92,6 +92,5 @@ public class Provedores {
 
         listaProvedores[posicion - 1] = new Provedores();
         Logueo.mensaje("Se ha eliminado el provedor");
-        mostrarProvedor();
     }
 }

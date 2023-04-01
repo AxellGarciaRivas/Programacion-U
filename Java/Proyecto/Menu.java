@@ -53,7 +53,7 @@ public class Menu {
              * ? Funcionalidad del menu de empleados
              */
             case 1:
-                menuEmplados(usuario, contrasenia);
+                menuEmpleados(usuario, contrasenia);
 
                 break;
             /*
@@ -155,7 +155,7 @@ public class Menu {
     /*
      * ? Metodo de menu de empleados
      */
-    public static void menuEmplados(String usuario, String contrasenia) {
+    public static void menuEmpleados(String usuario, String contrasenia) {
         String[] botonesEmpleados = { "Mostrar empleados", "Agregar empleado", "Modificar empleado",
                 "Eliminar empleado", "Regresar al menu principal" };
         int decisionEmpleados = JOptionPane.showOptionDialog(null,
@@ -166,7 +166,7 @@ public class Menu {
         switch (decisionEmpleados) {
             case 0:
                 Empleados.mostrarEmpleados();
-                menuEmplados(usuario, contrasenia);
+                menuEmpleados(usuario, contrasenia);
                 break;
 
             case 1:
@@ -174,16 +174,17 @@ public class Menu {
                         JOptionPane.showInputDialog(null, "Ingresa el numero de cedula"),
                         Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el salario")),
                         JOptionPane.showInputDialog(null, "Ingrese el puesto"));
+                        menuEmpleados(usuario, contrasenia);
                 break;
 
             case 2:
                 Empleados.modificarRegistro();
-                menuEmplados(usuario, contrasenia);
+                menuEmpleados(usuario, contrasenia);
                 break;
 
             case 3:
                 Empleados.eliminarEmpleado();
-                menuEmplados(usuario, contrasenia);
+                menuEmpleados(usuario, contrasenia);
                 break;
 
             case 4:

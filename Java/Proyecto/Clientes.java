@@ -74,8 +74,8 @@ public class Clientes {
      * ? Metodo para inicializacion de los clientes
      */
     public static void inicializacionClientes() {
-        clientesarr[0] = new Clientes("Fafa Jimenez", "111", "concepcion", "898989000", "fafa@gmail.com");
-        clientesarr[1] = new Clientes("Pao Jimenez", "222", "concepcion", "87609034", "poa@gmail.com");
+        clientesarr[0] = new Clientes("FAFA JIMINEZ", "111", "CONCEPCION", "898989000", "fafa@gmail.com");
+        clientesarr[1] = new Clientes("PAO JIMENEZ", "222", "CONCEPCION", "87609034", "poa@gmail.com");
 
         for (int i = 2; i < clientesarr.length; i++) {
             clientesarr[i] = new Clientes();
@@ -85,19 +85,15 @@ public class Clientes {
      * ? Metodo para registrar cliente
      */
     public static void registrarClientes() {
-
-        int valor = Integer.parseInt(JOptionPane.showInputDialog(null, "Cuantos clientes va a registrar"));
-        for (int i = 0; i < valor; i++) {
-
-            String idCliente = JOptionPane.showInputDialog("Digite la cécula del cliente").toUpperCase();
+        for (int i = 0; i < clientesarr.length; i++) {
+            if (clientesarr[i].getNombre() == null) {
             String nomCliente = JOptionPane.showInputDialog("Digite el nombre del cliente").toUpperCase();
-            String emailCliente = JOptionPane.showInputDialog("Digite el email del cliente");
-            String telefCliente = JOptionPane.showInputDialog("Digite el teléfono del cliente");
+            String idCliente = JOptionPane.showInputDialog("Digite la cécula del cliente").toUpperCase();
             String direcCliente = JOptionPane.showInputDialog("Digite el género del cliente").toUpperCase();
-
+            String telefCliente = JOptionPane.showInputDialog("Digite el teléfono del cliente");
+            String emailCliente = JOptionPane.showInputDialog("Digite el email del cliente");
             // Ya tengo los atributos para crear el objeto, entonces puedo instanciar en el
             // arreglo
-            if (clientesarr[i].getNombre() == null) {
                 clientesarr[i] = new Clientes(nomCliente, idCliente, direcCliente, telefCliente, emailCliente);
                 Logueo.mensaje("Usuario agregado exitosamente");
                 break;

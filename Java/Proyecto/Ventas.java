@@ -118,7 +118,6 @@ public class Ventas {
         String fecha = JOptionPane.showInputDialog(null, "Ingrese fecha");
         Logueo.mensaje("Se ha modificado el empleado exitosamente");
         posicionFactura(posicion, monto, producto, metodoPago, infoComprador, fecha);
-        consultarVenta();
     }
 
     /* 
