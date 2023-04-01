@@ -97,11 +97,11 @@ public class Clientes {
 
             // Ya tengo los atributos para crear el objeto, entonces puedo instanciar en el
             // arreglo
-            if (clientesarr[i].nombre == null) {
+            if (clientesarr[i].getNombre() == null) {
                 clientesarr[i] = new Clientes(nomCliente, idCliente, direcCliente, telefCliente, emailCliente);
                 Logueo.mensaje("Usuario agregado exitosamente");
                 break;
-            } else if (clientesarr[9] != null) {
+            } else if (clientesarr[9].getNombre() != null) {
                 Logueo.mensaje("Maximo de clientes agregados");
             }
 

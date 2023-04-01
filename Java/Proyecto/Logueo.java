@@ -41,9 +41,7 @@ public class Logueo {
     /*
      * ? Inicializacion de objeto
      */
-
-
-    public static void inicializacionUsuario() {
+    public static void inicializacionUsuarioLogueo() {
         logueoUsuarios[0] = new Logueo("Administrador", "12345");
 
         for (int i = 1; i < logueoUsuarios.length; i++) {
@@ -56,12 +54,11 @@ public class Logueo {
      */
     public static void agregarUsuario(String usuario, String contrasenia) {
         for (int i = 0; i < logueoUsuarios.length; i++) {
-
-            if (logueoUsuarios[i].usuario == null) {
+            if (logueoUsuarios[i].getUsuario() == null) {
                 logueoUsuarios[i] = new Logueo(usuario, contrasenia);
                 mensaje("Usuario agregado exitosamente");
                 break;
-            } else if (logueoUsuarios[9] != null) {
+            } else if (logueoUsuarios[9].getUsuario() != null) {
                 mensaje("Maximo de usuarios agregados");
             }
         }

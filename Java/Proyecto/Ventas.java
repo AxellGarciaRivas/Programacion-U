@@ -139,11 +139,11 @@ public class Ventas {
     public static void agregarVenta(String numeroVentas, int monto, String producto, String metodoPago, String infoComprador, String infoVendedor, String fechaVenta) {
         for (int i = 0; i < listaVentas.length; i++) {
 
-            if (listaVentas[i].infoComprador == null) {
+            if (listaVentas[i].getInfoComprador() == null) {
                 listaVentas[i] = new Ventas(numeroVentas, monto, producto, metodoPago, infoComprador, infoVendedor, fechaVenta);
                 Logueo.mensaje("Factura agregada exitosamente");
                 break;
-            } else if (listaVentas[9] != null) {
+            } else if (listaVentas[9].getInfoComprador() != null) {
                 Logueo.mensaje("Maximo de facturas agregados");
             }
         }

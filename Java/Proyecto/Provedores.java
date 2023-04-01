@@ -75,7 +75,7 @@ public class Provedores {
                 listaProvedores[i] = new Provedores(marca);
                 Logueo.mensaje("Provedor agregado exitosamente");
                 break;
-            } else if (listaProvedores[10] != null) {
+            } else if (listaProvedores[9].getMarca() != null) {
                 Logueo.mensaje("Maximo de provedores agregados");
             }
         }

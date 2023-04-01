@@ -128,11 +128,11 @@ public class Empleados {
     public static void ingresarNuevoEmpleado(String nombre, String cedula, int salario, String puesto) {
         for (int i = 0; i < empleadosLista.length; i++) {
 
-            if (empleadosLista[i].nombre == null) {
+            if (empleadosLista[i].getNombre() == null) {
                 empleadosLista[i] = new Empleados(nombre, cedula, salario, puesto);
                 Logueo.mensaje("Usuario agregado exitosamente");
                 break;
-            } else if (empleadosLista[9] != null) {
+            } else if (empleadosLista[9].getNombre() != null) {
                 Logueo.mensaje("Maximo de empleados agregados");
             }
         }

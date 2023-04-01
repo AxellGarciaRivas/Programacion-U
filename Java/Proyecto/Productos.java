@@ -125,7 +125,7 @@ public class Productos {
                 listaCarro[i] = new Productos(id, marca, descripcion, precio, estado);
                 Logueo.mensaje("Carro agregado exitosamente");
                 break;
-            } else if (listaCarro[14] != null) {
+            } else if (listaCarro[14].getMarca() != null) {
                 Logueo.mensaje("Maximo de carros agregados");
             }
         }
