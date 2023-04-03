@@ -68,14 +68,14 @@ public class Ventas {
         this.fechaVenta = fechaVenta;
     }
 
-    /* 
+    /*
      * ? Constructor vacio
      */
     public Ventas() {
 
     }
-    
-    /* 
+
+    /*
      * ? Constructor
      */
     public Ventas(String numeroVentas, int monto, String producto, String metodoPago, String infoComprador,
@@ -89,27 +89,32 @@ public class Ventas {
         this.fechaVenta = fechaVenta;
     }
 
-    /* 
+    /*
      * ? Instanciamiento de objetos
      */
     public static void instanciarVentas() {
-        listaVentas[0] = new Ventas("1", 100, "Carro Hyundai", "Tarjeta", "Axell Garcia Rivas", "Juan Gonzales", "23/3/23");
-        listaVentas[1] = new Ventas("2", 200, "Cambio aceite", "Tarjeta", "Kendall Villalobos", "Carlos Hernandez", "24/3/23");
-        listaVentas[2] = new Ventas("3", 300, "Reparacion llanta", "Efectivo", "Nick Rodriguez", "Juan Salas", "24/3/23");
-        listaVentas[3] = new Ventas("4", 400, "Mantenimiento preventivo", "Tarjeta", "Ana Rosales", "Michael Luna", "25/3/23");
+        listaVentas[0] = new Ventas("1", 100, "Carro Hyundai", "Tarjeta", "Axell Garcia Rivas", "Juan Gonzales",
+                "23/3/23");
+        listaVentas[1] = new Ventas("2", 200, "Cambio aceite", "Tarjeta", "Kendall Villalobos", "Carlos Hernandez",
+                "24/3/23");
+        listaVentas[2] = new Ventas("3", 300, "Reparacion llanta", "Efectivo", "Nick Rodriguez", "Juan Salas",
+                "24/3/23");
+        listaVentas[3] = new Ventas("4", 400, "Mantenimiento preventivo", "Tarjeta", "Ana Rosales", "Michael Luna",
+                "25/3/23");
 
         for (int i = 4; i < listaVentas.length; i++) {
             listaVentas[i] = new Ventas();
         }
     }
 
-    /* 
+    /*
      * ? Metodo para modificar faturas
      */
     public static void modificarRegistro() {
         Logueo.mensaje("Se mostrara la lista de registro con la posicion podras modificar dicho registro");
         consultarVenta();
-        int posicion = Integer.parseInt(JOptionPane.showInputDialog(null, "Digita la posicion de la factura de ventas que desea modificar"));
+        int posicion = Integer.parseInt(
+                JOptionPane.showInputDialog(null, "Digita la posicion de la factura de ventas que desea modificar"));
 
         int monto = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingresa monto"));
         String producto = JOptionPane.showInputDialog(null, "Ingrese producto");
@@ -120,26 +125,29 @@ public class Ventas {
         posicionFactura(posicion, monto, producto, metodoPago, infoComprador, fecha);
     }
 
-    /* 
+    /*
      * ? Metodo para eliminar registro de facturas
      */
     public static void eliminarRegistro() {
         Logueo.mensaje("Se mostrara la lista de faturas con la posicion podras eliminar dicha venta");
         consultarVenta();
-        int posicion = Integer.parseInt(JOptionPane.showInputDialog(null, "Digita la posicion de la factura que desea eliminar"));
+        int posicion = Integer
+                .parseInt(JOptionPane.showInputDialog(null, "Digita la posicion de la factura que desea eliminar"));
 
         listaVentas[posicion - 1] = new Ventas();
         Logueo.mensaje("Se ha eliminado la factura con exito");
     }
 
-    /* 
+    /*
      * ? Metodo para agregar facturas
      */
-    public static void agregarVenta(String numeroVentas, int monto, String producto, String metodoPago, String infoComprador, String infoVendedor, String fechaVenta) {
+    public static void agregarVenta(String numeroVentas, int monto, String producto, String metodoPago,
+            String infoComprador, String infoVendedor, String fechaVenta) {
         for (int i = 0; i < listaVentas.length; i++) {
 
             if (listaVentas[i].getInfoComprador() == null) {
-                listaVentas[i] = new Ventas(numeroVentas, monto, producto, metodoPago, infoComprador, infoVendedor, fechaVenta);
+                listaVentas[i] = new Ventas(numeroVentas, monto, producto, metodoPago, infoComprador, infoVendedor,
+                        fechaVenta);
                 Logueo.mensaje("Factura agregada exitosamente");
                 break;
             } else if (listaVentas[9].getInfoComprador() != null) {
@@ -148,7 +156,7 @@ public class Ventas {
         }
     }
 
-    /* 
+    /*
      * ? Consul de ventas realizadas
      */
     public static void consultarVenta() {
@@ -163,16 +171,40 @@ public class Ventas {
             }
         }
         Logueo.mensaje(numeroVenta);
+
+        String botonesDetalles[] = { "Si", "No" };
+        int decision = JOptionPane.showOptionDialog(null,
+                "¿Deseas ver factura completa? \n Con la posicion podras acceder a ella" ,
+                "¿Ver factura?", 0,
+                JOptionPane.QUESTION_MESSAGE, null, botonesDetalles, "Si");
+
+        if (decision == 0) {
+            int posicion = Integer
+                    .parseInt(JOptionPane.showInputDialog(null, "Ingresa la posicion que deseas ver detalladamente"));
+            detalleVenta(posicion);
+        }
     }
 
-    /* 
+    /*
      * ? Posicion de factura a modificar
      */
-    public static void posicionFactura(int posicion, int monto, String producto, String metodoPago, String infoComprador, String fecha) {
+    public static void posicionFactura(int posicion, int monto, String producto, String metodoPago,
+            String infoComprador, String fecha) {
         listaVentas[posicion - 1].setMonto(monto);
         listaVentas[posicion - 1].setProducto(producto);
         listaVentas[posicion - 1].setMetodoPago(metodoPago);
         listaVentas[posicion - 1].setInfoComprador(infoComprador);
         listaVentas[posicion - 1].setFechaVenta(fecha);
+    }
+
+    public static void detalleVenta(int posicion) {
+        JOptionPane.showMessageDialog(null, "Numero de venta: " + listaVentas[posicion - 1].getNumeroVentas() + "\n"
+                + "Venderdor: " + listaVentas[posicion - 1].getInfoVendedor() + "\n" + "Comprador: "
+                + listaVentas[posicion - 1].getInfoComprador() + "\n" + "Producto: "
+                + listaVentas[posicion - 1].getProducto() + "\n" + "Monto: " + listaVentas[posicion - 1].getMonto()
+                + "\n" + "Fecha de Venta: " + listaVentas[posicion - 1].getFechaVenta() + "\n" + "Metodo de pago: "
+                + listaVentas[posicion - 1].getMetodoPago());
+
+                
     }
 }
