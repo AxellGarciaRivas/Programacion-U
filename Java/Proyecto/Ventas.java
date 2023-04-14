@@ -197,6 +197,9 @@ public class Ventas {
         listaVentas[posicion - 1].setFechaVenta(fecha);
     }
 
+    /* 
+     * ? Metodo de funcionalidad de decision
+     */
     public static void detalleVenta(int posicion) {
         JOptionPane.showMessageDialog(null, "Numero de venta: " + listaVentas[posicion - 1].getNumeroVentas() + "\n"
                 + "Venderdor: " + listaVentas[posicion - 1].getInfoVendedor() + "\n" + "Comprador: "
